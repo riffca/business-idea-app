@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="stories">
+
+<head>
+    <base href="/">
+    <meta charset="UTF-8">
+    <title>Идея</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-route.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <!-- Directives -->
+    <script src="app/directives/reverse.js"></script>
+    <!-- Services -->
+    <script src="app/services/authService.js"></script>
+    <script src="app/services/userService.js"></script>
+    <script src="app/services/storyService.js"></script> 
+    <!-- Controllers -->
+    <script src="app/controllers/mainCtrl.js"></script>
+    <script src="app/controllers/userCtrl.js"></script>
+    <script src="app/controllers/storyController.js"></script>
+    <!-- App -->
+    <script src="app/app.js"></script>
+    <script src="app/app.routes.js"></script>
+</head>
+
+<body ng-controller="MainController as main">
+    <header>
+        <div class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <a href="/" class="navbar-brand"><span class="glyphicon glyphicon-book"></span>Мои Идеи</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="users"></a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li ng-if="main.loggedIn"><a href="/allStories">Все бизнес идеи</a></li>
+                    <li ng-if="!main.loggedIn"><a href="/login">Войти</a></li>
+                    <li ng-if="!main.loggedIn"><a href="/signup">Регистрация</a></li>
+                    <li ng-if="main.loggedIn"><a href="#">Привет {{ main.user.name}}</a></li>
+                    <li ng-if="main.loggedIn"><a href="#" ng-click="main.doLogout()">Выйти</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <main class="container">
+        <div ng-view></div>
+    </main>
+</body>
+
+</html>

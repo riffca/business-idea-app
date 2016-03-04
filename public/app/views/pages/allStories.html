@@ -1,0 +1,20 @@
+<div class="row">
+    <div class="col-md-3">
+
+    </div>
+    <div class="col-md-6">
+        <div class="row">
+            <div class="panel panel-success">
+                <div class="panel-heading">Все бизнес идеи</div>
+                <div class="panel-body" ng-repeat="each in story.stories | reverse">
+                <h3 class="text-left">{{ each.creator.name}}<small class="pull-right">{{ each.created | date:'MMM d,  H:mm:ss'}}</small></h3>
+                <p>{{ each.content}}</p>
+                </div> 
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+    </div>
+</div>
+
+

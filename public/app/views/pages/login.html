@@ -1,0 +1,19 @@
+<div class="container" ng-controller="MainController as login">
+    <div class="row">
+        <div class="col-md-4 col-sm-6 col-md-offset-4">
+        <span ng-if="login.error" class="alert alert-danger">{{ login.error}}</span>
+            <h1>Вход</h1>
+            <form method="post" ng-submit="login.doLogin()">
+                <div class="form-group">
+                    <label for="username">Имя:</label>
+                    <input class="form-control" type="text" id="name" name="name" ng-model="login.loginData.username">
+                </div>
+                <div class="form-group">
+                    <label for="password">Пароль:</label>
+                    <input class="form-control" type="text" id="password" name="password" ng-model="login.loginData.password">
+                </div>
+                <input type="submit" class="btn btn-success" value="Войти">
+            </form>
+        </div>
+    </div>
+</div>

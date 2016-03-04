@@ -1,0 +1,42 @@
+<div class="jumbotron text-center" ng-if="!main.loggedIn">
+    <div>
+        <h2>Запиши свою бизнес идею</h2>
+    </div>
+    <div>
+        <a href="/login" class="btn btn-primary">Войти</a>
+    </div>
+</div>
+<div class="row" ng-if="main.loggedIn">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-6" ng-controller="StoryController as story">
+        <div class="row">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    Напиши идею
+                </div>
+                <div class="panel-body">
+                    <form ng-submit="story.createStory()">
+                        <input type="text" class="form-control input-large" name="story" ng-model="story.storyData.content" placeholder="......" required>
+                    </form>
+                </div>
+            </div>
+            <div class="panel panel-success">
+                <div class="panel-heading">Идеи</div>
+                <div class="panel-body" ng-repeat="each in story.stories">
+                <p>{{ each.content}}
+
+                <span class="pull-right">{{ each.created | date:'MMM d,  H:mm:ss'}}</span>
+                <span ng-click="story.deleteStory($index)" class="glyphicon glyphicon-remove btn"></span>
+
+
+
+                </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+
+    </div>
+</div>

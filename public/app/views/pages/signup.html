@@ -1,0 +1,19 @@
+<div class="container" ng-controller="UserCreateController as user">
+    <div class="row">
+        <div class="col-md-4 col-sm-6 col-md-offset-4">
+            <span ng-if="user.error" class="alert alert-danger">{{ user.error }}</span>
+            <h1>Регистрация</h1>
+            <form method="post" ng-submit="user.signup()">
+                <div class="form-group">
+                    <label for="name">Имя:</label>
+                    <input class="form-control" type="text" id="name" name="name" ng-model="user.userData.name">
+                </div>
+                <div class="form-group">
+                    <label for="password">Пароль:</label>
+                    <input class="form-control" type="text" id="password" name="password" ng-model="user.userData.password">
+                </div>
+                <input type="submit" class="btn btn-danger" value="Зарегестрироваться">
+            </form>
+        </div>
+    </div>
+</div>
